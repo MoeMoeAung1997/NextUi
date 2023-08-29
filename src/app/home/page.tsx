@@ -18,21 +18,32 @@ export default function Home() {
       <NavbarBrand>
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className=" sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link  href="#" color="gray">
-            Features
+          <Link href="#" color="gray">
+            Docs
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
           <Link href="#" aria-current="page">
-            Customers
+            Components
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="red" href="#">
-            Integrations
+            Blog
           </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="red" href="#">
+            Figma
+          </Link>
+        </NavbarItem>
+
+        <NavbarItem>
+          <Button as={Link} color="primary" href="#" variant="flat">
+            New components v2.1.0
+          </Button>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">

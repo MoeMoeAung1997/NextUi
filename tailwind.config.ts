@@ -1,5 +1,5 @@
 //import type { Config } from "tailwindcss";
-const { nextui } = require("@nextui-org/react");
+const { nextui } = require("@nextui-org/theme");
 // const config: Config = {
 //   content: [
 //     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -20,7 +20,10 @@ const { nextui } = require("@nextui-org/react");
 // export default config
 
 module.exports = {
-  content: ["./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    // ...
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
   },
