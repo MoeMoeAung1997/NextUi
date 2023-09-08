@@ -1,6 +1,5 @@
 "use client";
-import { Card } from "@nextui-org/react";
-//import {AcmeLogo} from "./AcmeLogo.jsx";
+import { Card, Textarea } from "@nextui-org/react";
 import {
   Navbar,
   NavbarBrand,
@@ -10,7 +9,19 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import cilChevronBottom from "@coreui/icons";
+import { cilChevronBottom, cilCircle } from "@coreui/icons";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@nextui-org/react";
+//import { RiArrowDropDownLine } from "react-icons/"
+import { FaAngleDown } from "react-icons/fa";
+import { IoIosRadioButtonOn } from "react-icons/io";
+import { FaGithub } from "react-icons/fa";
 import CIcon from "@coreui/icons-react";
 import * as icon from "@coreui/icons";
 import {
@@ -32,45 +43,34 @@ export type DropdownItemSelectedProps = {
   isDisabled?: boolean;
 };
 
-//type selectedIcon?: ReactNode | (( props: DropdownItemSelectedProps) => ReactNOde) | null;
 export default function NavbarPage() {
   const [selectedOption, setSelectedOption] = React.useState(
     new Set(["merge"])
   );
 
-  //type selectedIcon?: ReactNode | (( props: DropdownItemSelectedProps) => ReactNOde) | null;
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   interface descriptionMapProps {
     merge: string;
     squash: string;
-    //rebase: string;
   }
   const descriptionMap: descriptionMapProps[] = [
     {
       merge: "v1.1.1",
       squash: "v2.1.1",
-      //squash: "All People",
-      //rebase: "All animals",
     },
-    // {
-    //   merge: "All content",
-    //   squash: "All People",
-    //   //rebase: "All animals",
-    // },
   ];
 
   const labelMap: { [key: string]: string } = {
     merge: "v2.1.0",
     squash: "v1.1.1",
-    //squash: "squash and merge",
-    //rebase: "Rebase and merge",
   };
 
   const selectedOptionValue: string = Array.from(selectedOption)[0];
   return (
     <Navbar style={{ backgroundColor: "black" }}>
       <NavbarBrand>
-        <h1 className="font-bold  text-xxl">Next UI</h1>
+        <h1 className="font-bold  text-5xl">Next UI</h1>
         {/* <Button className="heigh-10">v2.1.10</Button> */}
 
         <ButtonGroup variant="flat">
@@ -78,7 +78,7 @@ export default function NavbarPage() {
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <Button isIconOnly size="sm">
-                <CIcon icon={icon.cilChevronBottom} size="sm" height={20} />
+                <FaAngleDown />
               </Button>
             </DropdownTrigger>
             <DropdownMenu
@@ -98,16 +98,6 @@ export default function NavbarPage() {
             </DropdownMenu>
           </Dropdown>
         </ButtonGroup>
-        {/* <Dropdown>
-          <DropdownTrigger>
-            <Button>v2.1.10</Button>
-            <CIcon icon={icon.cilChevronBottom} />
-          </DropdownTrigger>
-          <DropdownMenu>
-            <DropdownItem key="new">v2.1.10</DropdownItem>
-            <DropdownItem key="new">v1.0.0</DropdownItem>
-          </DropdownMenu>
-        </Dropdown> */}
       </NavbarBrand>
       <NavbarContent className=" sm:flex gap-4" justify="center">
         <NavbarItem>
@@ -132,12 +122,47 @@ export default function NavbarPage() {
         </NavbarItem>
 
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} href="#" variant="flat">
+            {/* <CIcon icon={icon.cilCircle} size="sm" height={10} color="green" /> */}
+            <IoIosRadioButtonOn color="green" />
             New components v2.1.0
           </Button>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end">
+      <NavbarContent>
+        <FaGithub />
+        <FaGithub />
+        <FaGithub />
+        <FaGithub />
+      </NavbarContent>
+      <NavbarContent>
+        {/* <Textarea placeholder="Quick Search..." width={100} height={20}>
+        
+        </Textarea> */}
+        <Button onPress={onOpen}>
+          Quick Search...<Button>K</Button>
+        </Button>
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader>
+                  <Textarea placeholder="Search documentation" />
+                </ModalHeader>
+                <ModalFooter>
+                  {/* <Button color="primary" variant="light" onPress={onClose}>
+                    Close
+                  </Button> */}
+                  <ModalBody>
+                    <Button>Custom Styles</Button>
+                  </ModalBody>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      </NavbarContent>
+      {/* <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>
@@ -146,7 +171,7 @@ export default function NavbarPage() {
             Sign Up
           </Button>
         </NavbarItem>
-      </NavbarContent>
+      </NavbarContent> */}
     </Navbar>
   );
 }
