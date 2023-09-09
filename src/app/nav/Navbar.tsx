@@ -22,6 +22,10 @@ import {
 import { FaAngleDown } from "react-icons/fa";
 import { IoIosRadioButtonOn } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
+import { IoLogoTwitter } from "react-icons/io";
+import { HiOutlineSun } from "react-icons/hi";
+import { FaDiscord } from "react-icons/fa";
 import CIcon from "@coreui/icons-react";
 import * as icon from "@coreui/icons";
 import {
@@ -131,9 +135,9 @@ export default function NavbarPage() {
       </NavbarContent>
       <NavbarContent>
         <FaGithub />
-        <FaGithub />
-        <FaGithub />
-        <FaGithub />
+        <IoLogoTwitter />
+        <FaDiscord />
+        <HiOutlineSun />
       </NavbarContent>
       <NavbarContent>
         {/* <Textarea placeholder="Quick Search..." width={100} height={20}>
@@ -162,16 +166,13 @@ export default function NavbarPage() {
           </ModalContent>
         </Modal>
       </NavbarContent>
-      {/* <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent> */}
+      <NavbarContent>
+        <Button>
+          {" "}
+          <FaHeart color="red" />
+          Sponsor
+        </Button>
+      </NavbarContent>
     </Navbar>
   );
 }
